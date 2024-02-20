@@ -1,0 +1,68 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               8.0.35 - MySQL Community Server - GPL
+-- Server OS:                    Win64
+-- HeidiSQL Version:             12.6.0.6765
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Dumping database structure for stocksage
+CREATE DATABASE IF NOT EXISTS `stocksage` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `stocksage`;
+
+-- Dumping structure for table stocksage.enquiries
+CREATE TABLE IF NOT EXISTS `enquiries` (
+  `enquiryid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  PRIMARY KEY (`enquiryid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table stocksage.enquiries: ~4 rows (approximately)
+INSERT INTO `enquiries` (`enquiryid`, `name`, `email`, `message`) VALUES
+	(1, 'Tester1', 'Tester1@gmail.com', 'Tester One'),
+	(2, 'AdminTest', 'admin@gmail.com', 'Admin One'),
+	(3, 'Tester2', 'Tester2@gmail.com', 'Tester Two'),
+	(4, 'Test3', 'test3@gmail.com', 'Tester Three');
+
+-- Dumping structure for table stocksage.user
+CREATE TABLE IF NOT EXISTS `user` (
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
+  `permission` varchar(50) NOT NULL,
+  `riskstatus` varchar(50) NOT NULL,
+  `agerange` varchar(50) NOT NULL DEFAULT '',
+  `watchlist` varchar(999) NOT NULL,
+  PRIMARY KEY (`userid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table stocksage.user: ~2 rows (approximately)
+INSERT INTO `user` (`userid`, `username`, `password`, `email`, `fullname`, `permission`, `riskstatus`, `agerange`, `watchlist`) VALUES
+	(1, 'fyp', '123', 'fyp@gmail.com', 'fyp 2023', 'Admin', 'Risk Neutral', '31 to 40', 'TSLA, AMZN, NVDA, NKE, MSFT, BA'),
+	(2, 'fyp2', '123', 'fyp2@gmail.com', 'fyp2 2023', 'Member', 'Risk Averser', '31 to 40', ''),
+	(11, 'fyp3', '123', 'fyp3@gmail.com', 'fyp 3 2023', 'Member', 'Risk Neutral', '41 to 50', ''),
+	(12, 'fyp4', '123', 'fyp4@gmail.com', 'fy-p4', 'Member', 'Risk Seeker', '51 to 60', ''),
+	(17, 'fyp33', '123', 'fyp3@gmail.com', 'fyp 3 2023', 'Member', 'Risk Averser', '61 and above', ''),
+	(19, 'Tester ', '123', 'tester@gmail.com', 'Tester Number One', 'Member', 'Risk Neutral', '18 to 30', ''),
+	(21, 'test2', '123', 'test2@gmail.com', 'test 2', 'Member', 'Risk Averser', '41 to 50', 'AAPL'),
+	(22, 'admin2', '123', 'admin2@gmail.com', 'admin2', 'Admin', 'Risk Seeker', '18 to 30', 'AAPL'),
+	(23, 'admin4', '123', 'admin4@gmail.com', 'admin4', 'Admin', 'Risk Seeker', '31 to 40', 'AAPL');
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
